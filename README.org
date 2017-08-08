@@ -1,0 +1,8 @@
+* Playbook for Ubuntu
+Playbook for dev environment of ubuntu on wsl, and maybe also can apply to pure ubuntu.
+
+** Usage
+#+BEGIN_SRC bash
+git clone https://github.com/grugrut/playbook-for-ubuntu.git
+sudo bash ./setup.sh
+#+END_SRC
