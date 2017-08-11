@@ -4,5 +4,6 @@ Playbook for dev environment of ubuntu on wsl, and maybe also can apply to pure 
 ** Usage
 #+BEGIN_SRC bash
 git clone https://github.com/grugrut/playbook-for-ubuntu.git
-sudo bash ./setup.sh
+cd playbook-for-ubuntu
+bash ./setup.sh
 #+END_SRC

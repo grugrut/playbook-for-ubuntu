@@ -1,0 +1,47 @@
+- hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    # all package upgrade
+    - name: apt-get update
+      apt:
+        update_cache: yes
+
+    - name: apt-get upgrade
+      apt:
+        upgrade: dist
+
+    # premise package for compile
+    - name: build-essential
+      apt:
+        name: build-essential
+
+    - name: curl
+      apt:
+        name: curl
+
+    # nodejs and npm
+    - name: nodejs apt setting
+      shell: curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+
+    - name: nodejs install
+      apt:
+        name: nodejs
+        state: latest
+
+    - name: npm update
+      npm:
+        name: npm
+        global: yes
+
+    - name: webpack
+      npm:
+        name: webpack
+        global: yes
+
+    - name: js-beautify
+      npm:
+        name: js-beautify
+        global: yes
+
