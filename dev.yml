@@ -45,3 +45,28 @@
         name: js-beautify
         global: yes
 
+    # fish shell
+    - name: fish apt setting
+      command: apt-add-repository ppa:fish-shell/release-2
+
+    - name: apt-get upgrade
+      apt:
+        upgrade: dist
+
+    - name: fish install
+      apt:
+        name: fish
+
+    # golang
+    - name: go download
+      get_url:
+        url: https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
+        dest: go1.8.3.tar.gz
+
+    - name: go extract
+      command: tar xzf go1.8.3.tar.gz
+
+    - name: go install
+      copy:
+        src: go
+        dest: /usr/local/go
