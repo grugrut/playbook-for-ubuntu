@@ -21,6 +21,10 @@
       apt:
         name: curl
 
+    - name: gconf2
+      apt:
+        name: gconf2
+
     # nodejs and npm
     - name: nodejs apt setting
       shell: curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
@@ -57,6 +61,11 @@
       apt:
         name: fish
 
+    - name: chsh
+      user:
+        name: grugrut
+        shell: /usr/bin/fish
+
     # golang
     - name: go install
       unarchive:
@@ -75,4 +84,8 @@
     - name: emacs install
       apt:
         name: emacs25
- 
+
+    - name: cmigemo
+      apt:
+        name: cmigemo
+
