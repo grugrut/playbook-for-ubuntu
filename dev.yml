@@ -65,10 +65,13 @@
       apt:
         name: fish
 
-    - name: chsh
-      user:
-        name: grugrut
-        shell: /usr/bin/fish
+    - name: fisherman
+      command: curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+      become: no
+
+    - name: fonts-powerline
+      apt:
+        name: fonts-powerline
 
     # golang
     - name: go install
@@ -89,7 +92,6 @@
       shell: GOPATH={{gopath}} GOROOT={{goroot}} {{goroot}}/bin/go get -u golang.org/x/tools/cmd/goimports
       become: no
 
-
     # emacs
     - name: emacs apt setting
       command: apt-add-repository ppa:kelleyk/emacs
@@ -105,4 +107,17 @@
     - name: cmigemo
       apt:
         name: cmigemo
+
+    # terminal
+    - name: ghq
+      shell: GOPATH={{gopath}} GOROOT={{goroot}} {{goroot}}/bin/go get -u github.com/motemen/ghq
+      become: no
+
+    - name: ghq setting
+      command: git config --global ghq.root ~/src
+      become: no
+
+    - name: peco
+      shell: GOPATH={{gopath}} GOROOT={{goroot}} {{goroot}}/bin/go get -u github.com/peco/peco/cmd/peco
+      become: no
 
