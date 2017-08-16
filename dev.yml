@@ -29,6 +29,10 @@
       apt:
         name: gconf2
 
+    - name: pip
+      apt:
+        name: python-pip
+
     # nodejs and npm
     - name: nodejs apt setting
       shell: curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
@@ -121,3 +125,6 @@
       shell: GOPATH={{gopath}} GOROOT={{goroot}} {{goroot}}/bin/go get -u github.com/peco/peco/cmd/peco
       become: no
 
+    - name: percol
+      pip:
+        name: percol
