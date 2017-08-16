@@ -3,7 +3,7 @@
   become: yes
 
   vars:
-    gopath: ~/go
+    gopath: ~/
     goroot: /usr/local/go
 
   tasks:
@@ -119,10 +119,6 @@
 
     - name: ghq setting
       command: git config --global ghq.root ~/src
-      become: no
-
-    - name: peco
-      shell: GOPATH={{gopath}} GOROOT={{goroot}} {{goroot}}/bin/go get -u github.com/peco/peco/cmd/peco
       become: no
 
     - name: percol
