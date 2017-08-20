@@ -5,6 +5,8 @@
   vars:
     gopath: ~/
     goroot: /usr/local/go
+    # cloud-sdk-$(lsb_release -c -s)
+    gcloud_sdk_repo: cloud-sdk-xenial
 
   tasks:
     # all package upgrade
@@ -59,11 +61,8 @@
 
     # fish shell
     - name: fish apt setting
-      command: apt-add-repository ppa:fish-shell/release-2
-
-    - name: apt-get update
-      apt:
-        update_cache: yes
+      apt_repository:
+        repo: 'ppa:fish-shell/release-2'
 
     - name: fish install
       apt:
@@ -98,11 +97,8 @@
 
     # emacs
     - name: emacs apt setting
-      command: apt-add-repository ppa:kelleyk/emacs
-
-    - name: apt-get update
-      apt:
-        update_cache: yes
+      apt_repository:
+        repo: 'ppa:kelleyk/emacs'
 
     - name: emacs install
       apt:
@@ -124,3 +120,25 @@
     - name: percol
       pip:
         name: percol
+
+    # GCP
+    - name: gcp sdk setting
+      apt_repository:
+        repo: deb http://packages.cloud.google.com/apt {{gcloud_sdk_repo}} main
+        filename: 'google-cloud'
+
+    - name: gcp gpg key
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+    - name: apt-get python-crcmod
+      apt:
+        name: python-crcmod
+
+    - name: apt-get google-cloud-sdk
+      apt:
+        name: google-cloud-sdk
+
+    - name: apt-get google-cloud-sdk-app-engine-go
+      apt:
+        name: google-cloud-sdk-app-engine-go
