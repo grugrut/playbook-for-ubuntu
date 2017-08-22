@@ -35,6 +35,11 @@
       apt:
         name: python-pip
 
+    # Japanese font
+    - name: migu 1m
+      apt:
+        name: fonts-migmix
+
     # nodejs and npm
     - name: nodejs apt setting
       shell: curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
