@@ -35,6 +35,19 @@
       apt:
         name: python-pip
 
+    # library files(electron)
+    - name: libgtk-x11-2.0.so.0
+      apt:
+        name: libgtk2.0-0
+
+    - name: libXss.so.1
+      apt:
+        name: libxss1
+
+    - name: libnss3.so
+      apt:
+        name: libnss3
+
     # Japanese font
     - name: migu 1m
       apt:
