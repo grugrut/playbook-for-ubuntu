@@ -77,6 +77,11 @@
         name: js-beautify
         global: yes
 
+    - name: electron
+      npm:
+        name: electron
+        global: yes
+
     # fish shell
     - name: fish apt setting
       apt_repository:
