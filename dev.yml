@@ -35,6 +35,10 @@
       apt:
         name: python-pip
 
+    - name: autoconf
+      apt:
+        name: autoconf
+
     # library files(electron)
     - name: libgtk-x11-2.0.so.0
       apt:
@@ -80,6 +84,11 @@
     - name: electron
       npm:
         name: electron
+        global: yes
+
+    - name: tern
+      npm:
+        name: tern
         global: yes
 
     # fish shell
