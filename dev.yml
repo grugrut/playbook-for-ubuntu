@@ -18,6 +18,10 @@
       apt:
         upgrade: dist
 
+    - name: apt-file
+      apt:
+        name: apt-file
+
     # premise package for compile
     - name: build-essential
       apt:
@@ -38,6 +42,54 @@
     - name: autoconf
       apt:
         name: autoconf
+
+    - name: makeinfo
+      apt:
+        name: texinfo
+
+    - name: libgtk-3-dev
+      apt:
+        name: libgtk-3-dev
+
+    - name: libwebkitgtk-3.0-dev
+      apt:
+        name: libwebkitgtk-3.0-dev
+
+    - name: webkit2gtk
+      apt:
+        name: libwebkit2gtk-4.0
+
+    - name: libXpm
+      apt:
+        name: libxpm-dev
+
+    - name: libjpeg
+      apt:
+        name: libjpeg-dev
+
+    - name: libgif
+      apt:
+        name: libgif-dev
+
+    - name: libtiff
+      apt:
+        name: libtiff-dev
+
+    - name: gnutls
+      apt:
+        name: libgnutls-dev
+
+    - name: ncurses
+      apt:
+        name: libncurses-dev
+
+    - name: mailutils
+      apt:
+        name: mailutils
+
+    - name: girepository.h
+      apt:
+        name: libgirepository1.0-dev
 
     # library files(electron)
     - name: libgtk-x11-2.0.so.0
